@@ -47,7 +47,6 @@ def update_student(id):
         cur=conn.cursor()
         cur.execute("Update student set Name=?, Age=?, Roll_No=? where ID=?",(name,age,rollno,id))
         conn.commit()
-        print("yes")
         return redirect(url_for("read"))
     conn=sql.connect("students.db")
     conn.row_factory=sql.Row
@@ -64,6 +63,7 @@ def delete_student(id):
     cur.execute("Delete from student where ID=?",(id,))
     conn.commit()
     return redirect(url_for("read"))
+
 
 
 if __name__=="__main__":
